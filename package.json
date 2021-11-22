@@ -2,15 +2,16 @@
   "name": "pullstack_youtubeclonecode",
   "version": "1.0.0",
   "description": "The best way to watch videos.",
-  "main": "index.js",
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {},
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeeGwonSeon/PullStack_YoutubeCloneCode.git"
+  },
+  "scripts": {
+    "win": "node index.js"
   },
   "author": "Lee GwonSeon<verygoody2k@hotmail.com>",
   "license": "MIT",
