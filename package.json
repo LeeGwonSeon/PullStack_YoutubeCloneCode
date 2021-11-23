@@ -5,7 +5,10 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeeGwonSeon/PullStack_YoutubeCloneCode.git"
