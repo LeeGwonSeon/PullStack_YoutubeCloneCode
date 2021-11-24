@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 
-const app = express();
+console.log("nice to meet you!");
 //Babel is a JavaScript compiler. 사이트 나중에 검색

@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "The best way to watch videos.",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
     "@babel/preset-env": "^7.16.4"
   },
   "repository": {
@@ -14,7 +16,7 @@
     "url": "git+https://github.com/LeeGwonSeon/PullStack_YoutubeCloneCode.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "Lee GwonSeon<verygoody2k@hotmail.com>",
   "license": "MIT",
