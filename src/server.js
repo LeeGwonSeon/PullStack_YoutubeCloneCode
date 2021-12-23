@@ -1,28 +1,41 @@
 
 //Babel is a JavaScript compiler. 사이트 나중에 검색
 import express from "express";
+import morgan from "morgan";
 
 const PORT = 4000;
 
 const app = express();
-const gossipMiddleware = (req, res, next) => {
-    console.log(`Someone is going to: ${req.url}`);
-    next();
-}
+const logger = morgan("dev");
+app.use(logger);
 
-const handleHome = (req, res) => {
-    
-    return res.send("I'm love middlewares");
-}
-const handleLogin = (req, res) => {
-    return res.send({ message : "Login here!"});
-}
-app.get("/", gossipMiddleware, handleHome);
-app.get("/login", handleLogin)
+const globalRouter = express.Router();
 
-const handleListening = () => console.log(`Server listening on port http://localhost:${PORT}`);
+const handleHome = (req, res) => res.send("Home");
 
-app.listen(PORT, handleListening)
+globalRouter.get("/", handleHome);
+
+const userRouter = express.Router();
+
+const handleEditUser = (req, res) => res.send("Edit User");
+
+userRouter.get("/edit", handleEditUser);
+
+const handleWatchVideo = (req, res) => res.send("Watch Video");
+
+const videoRouter = express.Router();
+
+videoRouter.get("/watch", handleWatchVideo);
+
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
+
+
+const handleListening = () => 
+    console.log(`Server listening on port http://localhost:${PORT}`);
+
+app.listen(PORT, handleListening);
 
 
 
