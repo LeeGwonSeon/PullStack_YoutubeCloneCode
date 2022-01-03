@@ -2,9 +2,9 @@
 //Babel is a JavaScript compiler. 사이트 나중에 검색
 import express from "express";
 import morgan from "morgan";
-import globalRouter from "./globalRouter";
-import userRouter from "./userRouter";
-import videoRouter from "./videoRouter";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
 const PORT = 4000;
 
