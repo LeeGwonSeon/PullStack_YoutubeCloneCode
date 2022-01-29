@@ -12,7 +12,7 @@ const app = express();
 const logger = morgan("dev");
 
 app.set("view engine", "pug");
-app.set("views", process.cwd() + "/Project01_YoutubeCloneCodeing_Fullstack/src/views");
+app.set("views", process.cwd() + "D:\PullStack\PullStack_YoutubeCloneCode/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); // my express Aplication
 app.use("/", globalRouter);
