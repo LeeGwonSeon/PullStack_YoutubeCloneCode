@@ -4,6 +4,8 @@
   "description": "The best way to watch videos.",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^6.1.8",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
