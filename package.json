@@ -4,9 +4,10 @@
   "description": "The best way to watch videos.",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.1.8",
+    "mongoose": "^6.1.10",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
