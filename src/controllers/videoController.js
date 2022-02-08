@@ -1,3 +1,4 @@
+import { cache } from "pug/lib";
 import Video from "../models/Video";
 /*
 console.log("start")
@@ -33,15 +34,18 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
     const {title, description, hashtags} = req.body;
     console.log(title, description, hashtags);
-    await Video.create({
-        title,
-        description,
-        createdAt: Date.now(),
-        hashtags: hashtags.split(",").map((word) => `#${word}`),
-        meta: {
-            views: 0,
-            rating: 0,
-        },
-    });
-    return res.redirect("/");
+    try{
+        await Video.create({
+            title,
+            description,
+            hashtags: hashtags.split(",").map((word) => `#${word}`),
+        });
+        return res.redirect("/");
+    }catch(error){
+        return res.render("upload", {
+            pageTitle:"Upload Video",
+            errorMessage: error._message,
+        });
+    }
+    
 };
