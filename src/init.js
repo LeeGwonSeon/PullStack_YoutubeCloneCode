@@ -1,6 +1,7 @@
 //Babel is a JavaScript compiler. 사이트 나중에 검색
 import "./db";
 import "./models/Video";
+import "./models/User";
 import app from "./server";
 
 
