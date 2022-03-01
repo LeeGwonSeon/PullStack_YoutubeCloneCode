@@ -4,6 +4,7 @@
   "description": "The best way to watch videos.",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^6.1.10",
