@@ -1,4 +1,3 @@
-
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
@@ -15,8 +14,6 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); // my express Aplication
-
-console.log(process.env.COOKIE_SECRET);
 
 app.use(
     session({
