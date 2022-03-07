@@ -1,6 +1,7 @@
 import User from "../models/User";
+import fetch from "node-fetch";
 import bcrypt from "bcrypt";
-import { header } from "express/lib/request";
+
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async(req, res) => {
@@ -64,14 +65,13 @@ export const postLogin = async(req, res) => {
 export const startGithubLogin = (req, res) => {
     const baseUrl = "https://github.com/login/oauth/authorize";
     const config = {
-        client_id : process.env.GH_CLIENT,
-        allow_signup:false,
-        scope:"read:user user:email",
+        client_id: process.env.GH_CLIENT,
+        allow_signup: false,
+        scope: "read:user user:email",
     };
     const params = new URLSearchParams(config).toString();
     const finalURL = `${baseUrl}?${params}`;
     return res.redirect(finalURL);
-
 };
 
 export const finishGithunLogin = async (req, res) => {
@@ -85,12 +85,13 @@ export const finishGithunLogin = async (req, res) => {
     const finalURL = `${baseUrl}?${params}`;
     const data = await fetch(finalURL, {
         method:"POST",
-        headers:{
+        headers: {
             Accept: "application/json",
-        }
-    })
+        },
+    });
     const json = await data.json();
-    console.log(json)
+    console.log(json);
+    res.send(JSON.stringify(json));
 };
 
 export const edit = (req, res) => res.send("Edit User");
