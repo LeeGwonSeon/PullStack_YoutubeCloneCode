@@ -10,7 +10,9 @@ html(lang="ko")
                 ul
                     li 
                         a(href="/") Home
-                    if loggedIn 
+                    if loggedIn
+                        li 
+                            a(href="/videos/upload") Upload Video
                         li
                             a(href="/users/edit") Edit Profile
                         li
@@ -22,8 +24,6 @@ html(lang="ko")
                             a(href="/login") Login
                     li 
                         a(href="/search") Search
-                    li 
-                        a(href="/videos/upload") Upload Video
         main
             block content
     include partials/footer.pug
