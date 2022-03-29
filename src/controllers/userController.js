@@ -102,7 +102,6 @@ export const finishGithubLogin = async (req, res) => {
                 },
             })
         ).json();
-        console.log(userData);
         const emailData = await (
             await fetch(`${apiURL}/user/emails`, {
                 headers:{
@@ -110,7 +109,6 @@ export const finishGithubLogin = async (req, res) => {
                 },
             })
         ).json();
-        console.log(emailData);
         const emailObj = emailData.find(
             (email) => email.primary === true && email.verified === true
         );
@@ -191,9 +189,7 @@ export const postChangePassword = async (req, res) => {
             errorMessage: "The password dose not match the confirmation", });
     }
     
-    console.log("Old password", user.password);
     user.password = newPassword;
-    console.log("New unhashed pw", user.password);
     await user.save();
     return res.redirect("/users/logout");
 };
