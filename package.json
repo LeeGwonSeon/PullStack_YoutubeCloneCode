@@ -19,14 +19,17 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.16.4"
+    "@babel/preset-env": "^7.16.4",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/LeeGwonSeon/PullStack_YoutubeCloneCode.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js",
+    "assets": "webpack --config webpack.config.js"
   },
   "author": "Lee GwonSeon<verygoody2k@hotmail.com>",
   "license": "MIT",
