@@ -34,8 +34,8 @@
     "url": "https://github.com/LeeGwonSeon/PullStack_YoutubeCloneCode.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
   },
   "author": "Lee GwonSeon<verygoody2k@hotmail.com>",
   "license": "MIT",
