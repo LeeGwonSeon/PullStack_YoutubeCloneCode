@@ -3,30 +3,34 @@ extends base
 block content
     div#videoContainer
         video(src="/" + video.fileUrl)
-        div#videoControls
-            button#play Play
-            button#mute Mute
-            input(type="range", step="0.1", value= 0.5, min="0", max="1")#volume
+        div#videoControls.videoControls
+            div.videoControls__play
+                span#play.videoControls__playBtn
+                    i.fas.fa-play
+                div.videoControls__time
+                    span#currenTime 00:00
+                    span  / 
+                    span#totalTime 00:00
+            input(type="range",step="1", value="0", min="0")#timeline.videoControls__timeline
+            div.videoControls__volume
+                input(type="range",step="0.1", value=0.5, min="0", max="1")#volume
+                span#mute
+                    i.fas.fa-volume-up
             div
-                span#currentTime 0:00
-                span  / 
-                span#totalTime 0:00
-            div
-                input(type="range", step="1", value="0", min="0")#timeline
-            div
-                button#fullScreen Enter Full Screen
+                span#fullScreen
+                    i.fas.fa-expand
     //-
         div
-        p=video.description
-        small=video.createdAt
+            p=video.description
+            small=video.createdAt
         div
             small Uploaded by 
                 a(href=`/users/${video.owner._id}`)=video.owner.name
-        if String(video.owner._id) === String(loggedInUser._id)  
+        if String(video.owner._id) === String(loggedInUser._id)
             a(href=`${video.id}/edit`) Edit Video &rarr;
             br
             a(href=`${video.id}/delete`) Delete Video &rarr;
 
 
 block scripts
-    script(src="/static/js/videoPlayer.js")
+    script(src="/static/js/videoPlayer.js") 
