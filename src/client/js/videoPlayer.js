@@ -27,7 +27,7 @@ const handlePlayClick = (e) => {
 const handlePause = () => (playBtn.innerText = "Play");
 const handlePlay = () => (playBtn.innerText = "Pause");
 
-const handleMute = (e) => {
+const handleMuteClick = (e) => {
     if(video.muted) {
         video.muted = false;
     } else {
@@ -99,11 +99,11 @@ const handleMouseLeave = () => {
 };
 
 playBtn.addEventListener("click", handlePlayClick);
-muteBtn.addEventListener("click", handleMute);
+muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
-timeline.addEventListener("input", handleTimelineChange);
-fullScreenBtn.addEventListener("click", handleFullscreen);
 video.addEventListener("mousemove", handleMouseMove);
 video.addEventListener("mouseleave", handleMouseLeave);
+timeline.addEventListener("input", handleTimelineChange);
+fullScreenBtn.addEventListener("click", handleFullscreen);
