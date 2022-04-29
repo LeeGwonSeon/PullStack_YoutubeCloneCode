@@ -9,6 +9,11 @@ import apiRouter from "./routers/apiRouter";
 import { localsMiddleware } from "./middlewares";
 
 const app = express();
+app.use((req, res, next) => {
+    res.header("Cross-Origin-Embedder-Policy", "require-corp");
+    res.header("Cross-Origin-Opener-Policy", "same-origin");
+    next();
+    });
 const logger = morgan("dev");
 
 app.set("view engine", "pug");
@@ -33,12 +38,9 @@ app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 app.use("/api", apiRouter);
 app.use("/convert", express.static("node_modules/@ffmpeg/core/dist"));
-app.use((req, res, next) => {
-    res.header("Cross-Origin-Embedder-Policy", "require-corp");
-    res.header("Cross-Origin-Opener-Policy", "same-origin");
-    next();
-    });
+
 
 export default app;
+
 
 
