@@ -9,11 +9,15 @@ import apiRouter from "./routers/apiRouter";
 import { localsMiddleware } from "./middlewares";
 
 const app = express();
+
+// 밑에 설정한 app은 ffmpeg 녹화 다운로드 할때 에러가 안나게 하는 설정부분
+// HTML에서 헤더 부분에 설정하는 거와 같이 서버에서도 전체적으로 에러를 방지하기 위해서는 맨 위에 설정하는 게 기본 중에 기본
 app.use((req, res, next) => {
     res.header("Cross-Origin-Embedder-Policy", "require-corp");
     res.header("Cross-Origin-Opener-Policy", "same-origin");
     next();
     });
+    
 const logger = morgan("dev");
 
 app.set("view engine", "pug");
