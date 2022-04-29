@@ -18,6 +18,11 @@ module.exports = {
         path: path.resolve(__dirname, "assets"),
         clean: true,
     },
+
+    /*
+    2022년 4월 29일 오전 11시경
+    test에서 .js 만 입력되어 있는 상태에서 에러가 발생 
+    */
     module: {
         rules: [
             {

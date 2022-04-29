@@ -8,10 +8,13 @@ let recorder;
 let videoFile;
 
 
-
+//ffmpeg 에러발생 2022년 4월 29일 오전 11시경
+// 에러가 날 수 있는 상황 패키지 버전, 노드 문제 및 
+//webpack test/\js$ <- 오타문제
 const handleDownload = async () => {
-    const ffmpeg = createFFmpeg({ corePath: 'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js', log: true });
+    const ffmpeg = createFFmpeg({ corePath: "/convert/ffmpeg-core.js", log: true });
     await ffmpeg.load();
+    
 
     ffmpeg.FS("writeFile", "recording.webm", await fetchFile(videoFile));
 
