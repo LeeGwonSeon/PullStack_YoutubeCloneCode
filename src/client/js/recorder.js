@@ -10,6 +10,7 @@ let videoFile;
 //ffmpeg 에러발생 2022년 4월 29일 오전 11시경
 // 에러가 날 수 있는 상황 패키지 버전, 노드 문제 및 
 //webpack test/\js$ <- 오타문제
+//사이트를 동시에 열고 녹화를 하면 에러가 발생
 const handleDownload = async () => {
     const ffmpeg = createFFmpeg({ corePath: 'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js', log: true });
     await ffmpeg.load();
@@ -19,9 +20,15 @@ const handleDownload = async () => {
 
   await ffmpeg.run("-i", "recording.webm", "-r", "60", "output.mp4");
 
+  const mp4File = ffmpeg.FS("readFile", "output.mp4");
+
+  const mp4Blob = new Blob([mp4File.buffer], { type:"video/mp4" });
+
+  const mp4Url = URL.createObjectURL(mp4Blob);
+
     const a = document.createElement("a");
-    a.href = videoFile;
-    a.download = "MyRecording.webm";
+    a.href = mp4Url;
+    a.download = "MyRecording.mp4";
     document.body.appendChild(a);
     a.click();
 };
