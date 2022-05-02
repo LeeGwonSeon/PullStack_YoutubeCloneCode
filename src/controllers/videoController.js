@@ -1,4 +1,3 @@
-import { cache } from "pug/lib";
 import User from "../models/User";
 import Video from "../models/Video";
 /*
