@@ -1,6 +1,7 @@
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+// actionBtn명으로 된 데이터를 upload.pug에서 actionBtn명으로 지정된 상태의 데이터를 가져옴
+// actionBtn명을 변경할 경우 upload.pug에서도 같은 명으로 변경해야함 (안할 시 Null 상태의 에러 발생)
 const actionBtn = document.getElementById("actionBtn");
-console.log(actionBtn);
 const video = document.getElementById("preview");
 
 let stream;
@@ -75,7 +76,6 @@ const handleStop = () => {
     recorder.stop();
   };
   const handleStart = () => {
-    console.log(actionBtn);
     actionBtn.innerText = "Stop Recording";
     actionBtn.removeEventListener("click", handleStart);
     actionBtn.addEventListener("click", handleStop);
