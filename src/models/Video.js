@@ -15,14 +15,15 @@ const videoSchema = new mongoose.Schema({
     owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 });
 
-videoSchema.static('formatHashtags', function(hashtags){
-    return hashtags.split(",").map((word) => (word.startsWith("#") ? word : `#${word}`));
-});
-
 // 나중에 해결해야할 부분 정규식 urlPath  regex 연구
 videoSchema.static("changePathFormula", (urlPath) => {
     return urlPath.replace(/\\/g, "/");
     });
 
-const Video = mongoose.model("Video", videoSchema);
+videoSchema.static('formatHashtags', function(hashtags){
+    return hashtags.split(",").map((word) => (word.startsWith("#") ? word : `#${word}`));
+});
+
+
+const Video = mongoose.model("Video", videoSchema); 
 export default Video;

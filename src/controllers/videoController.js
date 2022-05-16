@@ -31,8 +31,9 @@ export const getEdit = async(req, res) => {
     if(!video) {
         return res.status(404).render("404" ,{ pageTitle: "Video not found."});
     }
-    console.log(typeof video.owner, typeof _id);
     if (String(video.owner) !== String(_id)) {
+        req.flash("error", "You are not the owner of the video.");
+
         return res.status(403).redirect("/");
     }
     return res.render("edit", {pageTitle: `Edit: ${video.title}`, video });
@@ -60,8 +61,8 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
     const {user: {_id},} = req.session;
     const {video, thumb} = req.files;
-    console.log(video, thumb);
     const {title, description, hashtags} = req.body;
+    video[0].path.replaceAll("\\","/");
     try{
         const newVideo = await Video.create({
             title,
