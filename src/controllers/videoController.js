@@ -52,6 +52,7 @@ export const postEdit = async(req, res) => {
         await Video.findOneAndUpdate(id, {
             title, description, hashtags:Video.formatHashtags(hashtags)
         });
+        req.flash("success", "Changes saved.");
     return res.redirect(`/videos/${id}`);
 };
 export const getUpload = (req, res) => {
