@@ -34,6 +34,12 @@ block content
             form.video__comment-form#commentForm
                 textarea(cols="30", rows="10", placeholder="Write a nice comment...")
                 button Add Comment
+        div.video__comments
+            ul
+                each comment in video.comments.reverse()
+                    li.video__comment
+                        i.fas.fa-comment
+                        |  #{comment.text}
 
 
 block scripts
