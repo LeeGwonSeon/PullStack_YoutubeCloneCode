@@ -1,4 +1,5 @@
 //Babel is a JavaScript compiler. 사이트 나중에 검색
+import "regenerator-runtime";
 import "dotenv/config";
 import "./db";
 import "./models/Video";
